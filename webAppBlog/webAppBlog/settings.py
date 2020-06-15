@@ -56,7 +56,8 @@ ROOT_URLCONF = 'webAppBlog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        # FMS: Add the folder template
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -120,3 +121,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# FMS: Add the static folder containing the css and jss of bootstrap
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]

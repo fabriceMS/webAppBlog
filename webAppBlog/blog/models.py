@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.template.defaultfilters import slugify
 
 # Store the category of each Post
 class PostCategory(models.Model):
@@ -9,6 +9,10 @@ class PostCategory(models.Model):
     class Meta:
         verbose_name_plural = 'PostCategories'
     
+    # Format properly (without space, without special char, ...)
+    def slug(self):
+        return slugify(self.name)
+
     def __str__(self):
         return self.name
 
